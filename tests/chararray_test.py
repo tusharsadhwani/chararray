@@ -30,3 +30,9 @@ def test_chararray() -> None:
     assert chars == chararray("abcabcd")
     with pytest.raises(TypeError):
         chars[3:] = 123
+
+    chars[0] = "z"
+    assert chars == "zbcabcd"
+
+    with pytest.raises(ValueError):
+        chars[0] = "zzz"
