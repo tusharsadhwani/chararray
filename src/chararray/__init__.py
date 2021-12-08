@@ -13,12 +13,14 @@ from typing import Iterable
 class chararray(UserList[str]):
     def __init__(self, chars: Iterable[str] = "") -> None:
         if not isinstance(chars, Iterable):
-            raise ValueError("Expected a list of characters, got", type(self))
+            raise ValueError(f"Expected a list of characters, got {type(chars)}")
 
         char_list = list(chars)
         for char in chars:
             if not isinstance(char, str):
-                raise ValueError("Expected a list of characters, got", type(char))
+                raise ValueError(
+                    f"Expected a list of characters, got {type(char)}",
+                )
             if len(char) != 1:
                 raise ValueError("Expected a list of characters, not a list of strings")
 
