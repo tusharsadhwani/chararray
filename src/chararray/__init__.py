@@ -37,3 +37,12 @@ class chararray(UserList[str]):
             return self == chararray(other)
 
         return super().__eq__(other)
+
+    def __setitem__(self, index, item):
+        if not isinstance(item, str):
+            raise TypeError(f"Expected character, got {type(item)}")
+
+        if isinstance(index, int) and len(item) != 1:
+            raise ValueError("Expected single character, got string of length != 1")
+
+        super().__setitem__(index, item)
