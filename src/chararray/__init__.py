@@ -24,14 +24,14 @@ class chararray(UserList[str]):
 
         super().__init__(char_list)
 
-    def __eq__(self, other: object) -> bool:
-        if isinstance(other, str):
-            return self == chararray(other)
-
-        return super().__eq__(other)
-
     def __repr__(self) -> str:
         if len(self) == 0:
             return "chararray()"
 
         return f"chararray('{''.join(self)}')"
+
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, str):
+            return self == chararray(other)
+
+        return super().__eq__(other)
