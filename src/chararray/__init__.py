@@ -34,7 +34,7 @@ class chararray(UserList[str]):
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, str):
-            return self == chararray(other)
+            return "".join(self) == other
 
         return super().__eq__(other)
 
