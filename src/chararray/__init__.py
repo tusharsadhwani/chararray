@@ -7,7 +7,7 @@ If no argument is given, it creates an empty chararray.
 The argument must be an iterable of characters, if specified.
 """
 from collections import UserList
-from typing import Iterable
+from typing import Iterable, Union
 
 
 class chararray(UserList[str]):
@@ -38,7 +38,7 @@ class chararray(UserList[str]):
 
         return super().__eq__(other)
 
-    def __setitem__(self, index, item):
+    def __setitem__(self, index: Union[int, slice], item: object) -> None:
         if not isinstance(item, str):
             raise TypeError(f"Expected character, got {type(item)}")
 
